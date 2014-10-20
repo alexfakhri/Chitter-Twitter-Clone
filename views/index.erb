@@ -1,6 +1,13 @@
+<section id="new-post">
+  <form action="/posts" method="post">
+    Create a new post: <input type="text" name="post">
+    <input type="submit" value="Post">
+  </form>
+</section>
+
 <ul>
   <% @posts.each do |post| %>
-    <li><a href="<%= post.user_name %>"><%= post.post %></a></li>
+    <li><%= post.user_name %><%= post.post %></li>
   <% end %>
 </ul>
 

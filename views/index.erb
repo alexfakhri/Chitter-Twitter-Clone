@@ -1,0 +1,6 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li><a href="<%= post.user_name %>"><%= post.post %></a></li>
+  <% end %>
+</ul>
+

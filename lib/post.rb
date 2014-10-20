@@ -10,7 +10,4 @@ include DataMapper::Resource
 	property :user_name,	String
 	property :post,			String, length: 140
 
-	
-
-
 end

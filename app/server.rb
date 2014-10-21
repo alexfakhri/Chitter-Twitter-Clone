@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'sinatra'
+require_relative 'helpers/application'
 
 env = ENV["RACK_ENV"] || "development"
 
@@ -34,6 +35,6 @@ post '/users' do
   user = User.create(email: params[:email],
   						user_name: params[:user_name],
               password: params[:password])
-  sessions[:user_id] = user.id
+  session[:user_id] = user.id
   redirect to('/')
 end

@@ -6,9 +6,15 @@
 	
 	<body>
 
+	<% if flash[:notice] %>
+	 	<div id="notice"><%= flash[:notice] %></div>
+	 <% end %>
+
 	 <% if current_user %>
 	    Welcome, <%= current_user.user_name %>
 	  <% end %>
+
+
 	  <%= yield %>
 
 	</body>

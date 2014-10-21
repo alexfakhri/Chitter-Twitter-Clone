@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'sinatra'
+require 'rack-flash'
 require_relative 'helpers/application'
 
 env = ENV["RACK_ENV"] || "development"
@@ -15,6 +16,7 @@ DataMapper.auto_upgrade!
 set :views, Proc.new { File.join(root, "views") }
 enable :sessions
 set :session_secret, 'super secret'
+use Rack::Flash
 
 get '/' do
   @posts = Post.all
@@ -28,13 +30,20 @@ post '/posts' do
 end
 
 get '/users/new' do
+  @user = User.new
 	erb :"users/new"
 end
 
 post '/users' do
-  user = User.create(email: params[:email],
+  @user = User.create(email: params[:email],
   						user_name: params[:user_name],
-              password: params[:password])
-  session[:user_id] = user.id
-  redirect to('/')
+              password: params[:password],
+              password_confirmation: params[:password_confirmation])
+  if @user.save
+    session[:user_id] = @user.id
+    redirect to('/')
+  else 
+    flash[:notice] = "Sorry, your passwords don't match"
+    erb :"users/new"
+  end
 end

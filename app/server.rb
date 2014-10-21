@@ -2,16 +2,9 @@ require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
 require_relative 'helpers/application'
-
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
+require_relative 'data_mapper_setup'
 require './lib/post'
 require './lib/user'
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
 
 set :views, Proc.new { File.join(root, "views") }
 enable :sessions

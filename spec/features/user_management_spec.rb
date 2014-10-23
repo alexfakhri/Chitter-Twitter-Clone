@@ -1,10 +1,11 @@
 require 'spec_helper'
 
+
 feature 'User signs up' do
 
 	scenario 'when being logged out' do
 		expect{ sign_up }.to change(User, :count).by(1)
-		expect(page).to have_content("Welcome, @alex")
+		expect(page).to have_content("Welcome, alex@alex.com")
 		expect(User.first.user_name).to eq("@alex")
 		expect(User.first.email).to eq("alex@alex.com")
 	end
@@ -35,3 +36,38 @@ feature 'User signs up' do
 	end
 
 end
+
+feature 'User signs in' do
+
+	before(:each) do
+		User.create(email: "alex@alex.com",
+					password: 'nuts!',
+					password_confirmation: 'nuts!')
+	end
+
+	scenario "with correct credentials" do
+    	visit '/'
+    	expect(page).not_to have_content("Welcome, alex@alex.com")
+    	sign_in('alex@alex.com', 'nuts!')
+    	expect(page).to have_content("Welcome, alex@alex.com")
+  	end
+
+  	scenario "with incorrect credentials" do
+    	visit '/'
+    	expect(page).not_to have_content("Welcome, alex@alex.com")
+    	sign_in('alex@alex.com', 'wrong')
+    	expect(page).not_to have_content("Welcome, alex@alex.com")
+  end
+
+  def sign_in(email, password)
+    visit '/sessions/new'
+    fill_in 'email', with: email
+    fill_in 'password', with: password
+    click_button 'Sign in'
+  end
+
+
+
+
+end
+

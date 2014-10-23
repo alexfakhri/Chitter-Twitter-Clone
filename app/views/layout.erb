@@ -5,6 +5,9 @@
 	</head>
 	
 	<body>
+	<% if current_user %>
+	    Welcome, <%= current_user.email %>
+	  <% end %>
 
 	<% if flash[:notice] %>
 	 	<div id="notice"><%= flash[:notice] %></div>
@@ -19,9 +22,7 @@
   </ul>
 <% end %>
 
-	 <% if current_user %>
-	    Welcome, <%= current_user.user_name %>
-	  <% end %>
+	 
 
 
 	  <%= yield %>

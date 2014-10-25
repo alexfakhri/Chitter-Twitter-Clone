@@ -10,7 +10,7 @@ Features:
 Notes:
 - [x] Sign up with email, password, name and user name
 - [x] Email and username are unique
-- [ ] Posts display username handles 
+- [x] Posts display username handles 
 - [x] Secure passwords with bcrypt
 - [x] Use datamapper and postgres to save data
 - [ ] Can see posts when not logged in

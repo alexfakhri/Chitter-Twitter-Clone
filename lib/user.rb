@@ -16,6 +16,10 @@ class User
   validates_uniqueness_of :email
   validates_uniqueness_of :user_name
   validates_confirmation_of :password, message: "Sorry, your passwords don't match"
+  validates_presence_of :email
+ 
+  
+
   
 
    def password=(password)

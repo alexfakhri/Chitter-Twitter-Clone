@@ -1,18 +1,18 @@
 A simple Twitter clone that allows users to post messages to a public forum. 
 
 Features:
-- [ ] Sign up to the service
-- [ ] Log in to the service
-- [ ] Log out of the service
+- [x] Sign up to the service
+- [x] Log in to the service
+- [x] Log out of the service
 - [x] Post a message to the service
 - [x] Displays feed in a chronological order
 
 Notes:
-- [ ] Sign up with email, password, name and user name
-- [ ] Email and username are unique
+- [x] Sign up with email, password, name and user name
+- [x] Email and username are unique
 - [ ] Posts display username handles 
-- [ ] Secure passwords with bcrypt
-- [ ] Use datamapper and postgres to save data
+- [x] Secure passwords with bcrypt
+- [x] Use datamapper and postgres to save data
 - [ ] Can see posts when not logged in
 - [ ] Can only post when logged in
 - [ ] Can reply to posts from other users

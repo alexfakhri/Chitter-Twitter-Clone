@@ -7,7 +7,7 @@
 
 <ul>
   <% @posts.each do |post| %>
-    <li><%= post.user_name %><%= post.post %></li>
+    <li><%= post.post %><%= post[:user_name] %></li>
   <% end %>
 </ul>
 

@@ -25,6 +25,12 @@ feature 'User signs up' do
 		expect(page).to have_content("This email is already taken")
 	end
 
+	scenario "with a username that is already registered" do
+		expect{ sign_up }.to change(User, :count).by(1)
+		expect{ sign_up }.to change(User, :count).by(0)
+		expect(page).to have_content("This username is already taken")
+	end
+
 
 end
 

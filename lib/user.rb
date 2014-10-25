@@ -7,13 +7,14 @@ class User
 
   property :id, 		Serial
   property :email, 	String, unique: true, message: "This email is already taken"
-  property :user_name, String
+  property :user_name, String, unique: true, message: "This username is already taken"
   property :password_digest, Text
 
   attr_reader :password
   attr_accessor :password_confirmation
 
   validates_uniqueness_of :email
+  validates_uniqueness_of :user_name
   validates_confirmation_of :password, message: "Sorry, your passwords don't match"
   
 

@@ -9,5 +9,7 @@ include DataMapper::Resource
 	property :name, 		String
 	property :user_name,	String
 	property :post,			String, length: 140
+	property :created_at,	DateTime
+	property :created_on,	Date
 
 end

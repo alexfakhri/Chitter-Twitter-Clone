@@ -26,6 +26,6 @@ Languages, Progams used:
 - Datamapper
 - Postgresql
 - Heroku
-- Bcrypt
+- Bcrypt ruby
 - Html
 - CSS

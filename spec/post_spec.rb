@@ -22,9 +22,7 @@ describe Post do
 			expect(post.name).to eq("ALEX")
 			expect(post.user_name).to eq("@alex")
 			expect(post.post).to eq("this is a sample post of less than 140 characters")
-
 			post.destroy
-
 			expect(Post.count).to eq(0)
 
 		end	
